@@ -39,7 +39,7 @@ func TestGetAPIKey(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			key, err := auth.GetAPIKey(tt.headers)
 			keyDiff := cmp.Diff(tt.expectedKey, key)
-			if keyDiff == "" {
+			if keyDiff != "" {
 				t.Errorf("API Key mismatch (-want +got):\n%s", keyDiff)
 			}
 
